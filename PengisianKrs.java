@@ -120,15 +120,12 @@ public class PengisianKrs {
                 System.out.println("Nama: " + arrKrs[i][0] + " | NIM: " + arrKrs[i][1] + " | Jenis: " + arrKrs[i][2] + " | SKS: " + arrSks[i]);
                 ditemukan = true;
             }
-
-
         }
 
         if (!ditemukan) {
             System.out.println("Tidak ada data dengan jenis tersebut.");
             
         }
-        
-        
+        main(null);       
     }
 }
