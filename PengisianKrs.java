@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class PengisianKrs {
-    static String arrKolom[]={"NIM", "Nama", "Kode MK", "Nama Mata Kuliah", "SKS"};
+    static String arrKolom[]={"NIM \t\t", "Nama\t\t", "Kode MK\t", "Nama Mata Kuliah\t", "SKS\t\t"};
     static int jmlBaris = 0;
     static String arrKrs [][] = new String[1][5];
     static int[] arrSks = new int[1];
@@ -55,30 +55,34 @@ public class PengisianKrs {
         System.out.print("Kode mata kuliah: ");
         String jenis = sc.nextLine();
         System.out.print("Jumlah SKS (1-3): ");
-        int tahun = sc.nextInt();
-
+        int sks = sc.nextInt();
+        if (sks>3||sks<0) {
+            System.out.println("! jumlah SKS yang anda masukkan belum sesuai. \nMasukkan ulang jumlah SKS!");
+            System.out.print("Jumlah SKS (1-3): ");
+            sks = sc.nextInt();
+        }
         
         //mengubah ukuran array
         if (jmlBaris == arrKrs.length) {
             String[][] tempArr = new String[arrKrs.length + 1][5];
-            int[] tempTahun = new int[arrSks.length + 1]; 
+            int[] tempSks = new int[arrSks.length + 1]; 
             
             //salin data array lama
             for (int i = 0; i < arrKrs.length; i++) {
                 tempArr[i] = arrKrs[i];
             }
             for (int i = 0; i < arrSks.length; i++) {
-                tempTahun[i] = arrSks[i];
+                tempSks[i] = arrSks[i];
             }
             //ganti array
             arrKrs = tempArr; 
-            arrSks = tempTahun;  
+            arrSks = tempSks;  
         }
         
         arrKrs[jmlBaris][0] = nama;
         arrKrs[jmlBaris][1] = nim;
         arrKrs[jmlBaris][2] = jenis;
-        arrSks[jmlBaris] = tahun; 
+        arrSks[jmlBaris] = sks; 
     
         jmlBaris++; 
     
@@ -91,9 +95,11 @@ public class PengisianKrs {
         if (jmlBaris == 0) {
             System.out.println("Tidak ada data KRS.\n");
         } else {
-
+            for (int y = 0; y < arrKolom.length; y++){
+                System.out.print(arrKolom[y]+ "|");
+            }
+            System.out.println();
             for (int i = 0; i < jmlBaris; i++) {
-                // for ()
                 for (int j = 0; j < arrKolom.length; j++) {
                     System.out.print(arrKrs[i][j] + " | ");
                 }
