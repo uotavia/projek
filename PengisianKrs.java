@@ -6,9 +6,9 @@ public class PengisianKrs {
     static int[] arrTahun = new int[1];
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("=== PENCATATAN PRESTASI MAHASISWA ===");
+        System.out.println("=== Sistem Pemantauan KRS Mahasiswa ===");
         System.out.println("1. Tambah data KRS \n2. Tampilkan daftar KRS mahasiswa");
-        System.out.println("3. Filter KRS \n0. Keluar");
+        System.out.println("3. Analisis Data KRS \n4. Keluar");
         System.out.print("Pilih menu: ");
         String menu = sc.nextLine();
 
@@ -22,7 +22,7 @@ public class PengisianKrs {
             case "3":
                 FilterKrs();
                 break;
-            case "0": break;
+            case "4": break;
             default:
                 System.out.print("Menu yang anda masukkan salah \n1. Kembali\n2. Keluar\nInput pilihan: ");
                 String salah = sc.nextLine();
@@ -54,7 +54,7 @@ public class PengisianKrs {
         String nim = sc.nextLine();
         System.out.print("Kode mata kuliah: ");
         String jenis = sc.nextLine();
-        System.out.print("Jumlah SKS      : ");
+        System.out.print("Jumlah SKS (1-3): ");
         int tahun = sc.nextInt();
 
         
@@ -78,7 +78,6 @@ public class PengisianKrs {
         arrKrs[jmlBaris][0] = nama;
         arrKrs[jmlBaris][1] = nim;
         arrKrs[jmlBaris][2] = jenis;
-        arrKrs[jmlBaris][3] = tingkat;
         arrTahun[jmlBaris] = tahun; 
     
         jmlBaris++; 
