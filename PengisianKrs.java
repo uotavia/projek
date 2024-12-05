@@ -40,6 +40,7 @@ public class PengisianKrs {
         System.out.println();
     }
     static void TambahKrs(){
+        int jmlSks = 0;
         Scanner sc = new Scanner(System.in);
         System.out.println("\n-- TAMBAH DATA KRS --");
         System.out.println("*masukkan NIM 'batal123' jika ingin membatalkan aksi tambah.");
@@ -64,42 +65,44 @@ public class PengisianKrs {
                 System.out.print("Jumlah SKS (1-3): ");
                 sks = sc.nextInt(); sc.nextLine();
             }
-        
-        //mengubah ukuran array
-        if (jmlBaris == arrKrs.length) {
-            String[][] tempArr = new String[arrKrs.length + 1][4];
-            int[] tempSks = new int[arrSks.length + 1]; 
             
-            //salin data array lama
-            for (int i = 0; i < arrKrs.length; i++) {
-                tempArr[i] = arrKrs[i];
+            //mengubah ukuran array
+            if (jmlBaris == arrKrs.length) {
+                String[][] tempArr = new String[arrKrs.length + 1][4];
+                int[] tempSks = new int[arrSks.length + 1]; 
+                
+                //salin data array lama
+                for (int i = 0; i < arrKrs.length; i++) {
+                    tempArr[i] = arrKrs[i];
+                }
+                for (int i = 0; i < arrSks.length; i++) {
+                    tempSks[i] = arrSks[i];
+                }
+                //ganti array
+                arrKrs = tempArr; 
+                arrSks = tempSks;  
             }
-            for (int i = 0; i < arrSks.length; i++) {
-                tempSks[i] = arrSks[i];
-            }
-            //ganti array
-            arrKrs = tempArr; 
-            arrSks = tempSks;  
-        }
-             
-        arrKrs[jmlBaris][0] = nim;
-        arrKrs[jmlBaris][1] = nama;
-        arrKrs[jmlBaris][2] = kode;
-        arrKrs[jmlBaris][3] = namaMK;
-        arrSks[jmlBaris] = sks; 
+                
+            arrKrs[jmlBaris][0] = nim;
+            arrKrs[jmlBaris][1] = nama;
+            arrKrs[jmlBaris][2] = kode;
+            arrKrs[jmlBaris][3] = namaMK;
+            arrSks[jmlBaris] = sks; 
+            jmlSks+=sks;
 
-        System.out.print("Tambah mata kuliah lain? (y/t): ");
-        String yt = sc.nextLine();
-        if (yt.equalsIgnoreCase("y")) {
-            jmlBaris++;
-            lagi = true;
-        }else if (yt.equalsIgnoreCase("t")) {
-            break;
-        }
+            System.out.print("Tambah mata kuliah lain? (y/t): ");
+            String yt = sc.nextLine();
+            if (yt.equalsIgnoreCase("y")) {
+                jmlBaris++;
+                lagi = true;
+            }else if (yt.equalsIgnoreCase("t")) {
+                break;
+            }
         }
         jmlBaris++; 
-    
+
         System.out.println("Data berhasil ditambahkan!");
+        System.out.println("Total SKS yang diambil: "+jmlSks);
         System.out.println();
         main(null);
     }
