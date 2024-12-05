@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class PengisianKrs {
     static String arrKolom[]={"NIM \t\t", "Nama\t\t", "Kode MK\t", "Nama Mata Kuliah\t", "SKS\t\t"};
     static int jmlBaris = 0;
-    static String arrKrs [][] = new String[1][5];
+    static String arrKrs [][] = new String[1][4];
     static int[] arrSks = new int[1];
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -38,22 +38,24 @@ public class PengisianKrs {
                 }
                 break;
         }
-        
+        System.out.println();
     }
     static void TambahKrs(){
         Scanner sc = new Scanner(System.in);
         System.out.println("\n-- TAMBAH DATA KRS --");
-        System.out.println("*masukkan nama 'batal123' jika ingin membatalkan aksi tambah.");
-        System.out.print("Nama mahasiswa  : ");
-        String nama = sc.nextLine();
-        if (nama.equals("batal123")) {
+        System.out.println("*masukkan NIM 'batal123' jika ingin membatalkan aksi tambah.");
+        System.out.print("NIM mahasiswa   : ");
+        String nim = sc.nextLine();
+        if (nim.equals("batal123")) {
             System.out.println();
             main(null);
         }
-        System.out.print("NIM mahasiswa   : ");
-        String nim = sc.nextLine();
+        System.out.print("Nama maahasiswa : ");
+        String nama = sc.nextLine();
         System.out.print("Kode mata kuliah: ");
-        String jenis = sc.nextLine();
+        String kode = sc.nextLine();
+        System.out.print("Nama mata kuliah: ");
+        String namaMK = sc.nextLine();
         System.out.print("Jumlah SKS (1-3): ");
         int sks = sc.nextInt();
         if (sks>3||sks<0) {
@@ -64,7 +66,7 @@ public class PengisianKrs {
         
         //mengubah ukuran array
         if (jmlBaris == arrKrs.length) {
-            String[][] tempArr = new String[arrKrs.length + 1][5];
+            String[][] tempArr = new String[arrKrs.length + 1][4];
             int[] tempSks = new int[arrSks.length + 1]; 
             
             //salin data array lama
@@ -79,34 +81,36 @@ public class PengisianKrs {
             arrSks = tempSks;  
         }
         
-        arrKrs[jmlBaris][0] = nama;
-        arrKrs[jmlBaris][1] = nim;
-        arrKrs[jmlBaris][2] = jenis;
+        arrKrs[jmlBaris][0] = nim;
+        arrKrs[jmlBaris][1] = nama;
+        arrKrs[jmlBaris][2] = kode;
+        arrKrs[jmlBaris][3] = namaMK;
         arrSks[jmlBaris] = sks; 
     
         jmlBaris++; 
     
         System.out.println("Data berhasil ditambahkan!");
+        System.out.println();
         main(null);
-
     }
     static void TampilKrs(){
         System.out.println("\n-- SEMUA KRS MAHASISWA --");
         if (jmlBaris == 0) {
-            System.out.println("Tidak ada data KRS.\n");
+            System.out.println("Tidak ada data KRS.");
         } else {
             for (int y = 0; y < arrKolom.length; y++){
                 System.out.print(arrKolom[y]+ "|");
             }
             System.out.println();
             for (int i = 0; i < jmlBaris; i++) {
-                for (int j = 0; j < arrKolom.length; j++) {
-                    System.out.print(arrKrs[i][j] + " | ");
+                for (int j = 0; j < arrKolom.length-1; j++) {
+                    System.out.print(arrKrs[i][j] + "\t | ");
                 }
                 System.out.print(arrSks[i]);
                 System.out.println();
             }
         }
+        System.out.println();
         main(null); 
     }
     static void FilterKrs(Scanner sc){
