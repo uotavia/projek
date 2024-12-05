@@ -1,9 +1,9 @@
 import java.util.Scanner;
 public class PengisianKrs {
-    static String arrKolom[]={"Nama", "Nim", "Jenis", "Tingkat", "Tahun"};
+    static String arrKolom[]={"NIM", "Nama", "Kode MK", "Nama Mata Kuliah", "SKS"};
     static int jmlBaris = 0;
     static String arrKrs [][] = new String[1][5];
-    static int[] arrTahun = new int[1];
+    static int[] arrSks = new int[1];
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("=== PENCATATAN PRESTASI MAHASISWA ===");
@@ -88,7 +88,21 @@ public class PengisianKrs {
 
     }
     static void TampilKrs(){
+        System.out.println("\n-- SEMUA KRS MAHASISWA --");
+        if (jmlBaris == 0) {
+            System.out.println("Tidak ada data KRS.\n");
+        } else {
 
+            for (int i = 0; i < jmlBaris; i++) {
+                for ()
+                for (int j = 0; j < arrKolom.length; j++) {
+                    System.out.print(arrKrs[i][j] + " | ");
+                }
+                System.out.print(arrSks[i]);
+                System.out.println();
+            }
+        }
+        main(null); 
     }
     static void FilterKrs(){
         
