@@ -44,25 +44,25 @@ public class PengisianKrs {
         Scanner sc = new Scanner(System.in);
         System.out.println("\n-- TAMBAH DATA KRS --");
         System.out.println("*masukkan NIM 'batal123' jika ingin membatalkan aksi tambah.");
-        System.out.print("NIM mahasiswa    : ");
+        System.out.print("NIM mahasiswa     : ");
         String nim = sc.nextLine();
         if (nim.equals("batal123")) {
             System.out.println();
             main(null);
         }
-        System.out.print("Nama mahasiswa  : ");
+        System.out.print("Nama mahasiswa    : ");
         String nama = sc.nextLine();
         boolean lagi = true;
         while (lagi) {
-            System.out.print("Kode mata kuliah: ");
+            System.out.print("Kode mata kuliah  : ");
             String kode = sc.nextLine();
-            System.out.print("Nama mata kuliah: ");
+            System.out.print("Nama mata kuliah  : ");
             String namaMK = sc.nextLine();
-            System.out.print("Jumlah SKS (1-3): ");
+            System.out.print("Jumlah SKS (1-3)  : ");
             int sks = sc.nextInt(); sc.nextLine();
             if (sks>3||sks<0) {
                 System.out.println("! jumlah SKS yang anda masukkan belum sesuai. \nMasukkan ulang jumlah SKS!");
-                System.out.print("Jumlah SKS (1-3): ");
+                System.out.print("Jumlah SKS (1-3) : ");
                 sks = sc.nextInt(); sc.nextLine();
             }
             
@@ -150,7 +150,6 @@ public class PengisianKrs {
                         System.out.print(arrSks[i]);
                         System.out.println();
                         found = true; 
-                        break; 
                     }
                 }
             
