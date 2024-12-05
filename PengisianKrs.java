@@ -50,7 +50,7 @@ public class PengisianKrs {
             System.out.println();
             main(null);
         }
-        System.out.print("Nama maahasiswa : ");
+        System.out.print("Nama mahasiswa  : ");
         String nama = sc.nextLine();
         boolean lagi = true;
         while (lagi) {
