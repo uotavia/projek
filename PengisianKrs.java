@@ -132,10 +132,10 @@ public class PengisianKrs {
                 break;
             case "2":       
             System.out.print("Masukkan NIM Mahasiswa: ");
-            String nim = sc.nextLine(); // Input NIM dari pengguna
+            String nim = sc.nextLine();
             
             if (jmlBaris == 0) {
-                System.out.println("Tidak ada data KRS."); // Jika tidak ada data
+                System.out.println("Tidak ada data KRS.");
             } else {
                 boolean found = false;
                 for (int y = 0; y < arrKolom.length; y++){
@@ -143,21 +143,18 @@ public class PengisianKrs {
                 }
                 System.out.println();
                 for (int i = 0; i < jmlBaris; i++) {
-                    // Memeriksa apakah NIM pada array sesuai dengan input
                     if (arrKrs[i][0].equals(nim)) {
-                        // Menampilkan data mahasiswa yang sesuai
                         for (int j = 0; j < arrKolom.length - 1; j++) {
                             System.out.print(arrKrs[i][j] + "\t\t | ");
                         }
-                        System.out.print(arrSks[i]); // Menampilkan jumlah SKS
+                        System.out.print(arrSks[i]);
                         System.out.println();
-                        found = true; // Tandai NIM ditemukan
-                        break; // Berhenti karena data sudah ditemukan
+                        found = true; 
+                        break; 
                     }
                 }
             
                 if (!found) {
-                    // Jika tidak ada NIM yang cocok
                     System.out.println("NIM tidak ditemukan.");
                 }
             }
@@ -169,25 +166,22 @@ public class PengisianKrs {
         }
         main(null);
     }
-    static void FilterKrs(Scanner sc){
-
-
+    static void FilterKrs(Scanner sc) {
+        System.out.println();
         System.out.println("=== Analisis Data SKS === ");
-        boolean ditemukan = false;
-        System.out.print("Masukkan jenis SKS yang ingin dianalisis: ");
-        String JenisDicari = sc.nextLine();
-
-        for(int i = 0; i < jmlBaris; i++){
-            if(arrKrs[i][2].equalsIgnoreCase(JenisDicari)){
-                System.out.println("NIM: " + arrKrs[i][0] + " | Nama: " + arrKrs[i][1] + " | Jenis: " + arrKrs[i][2] + " | SKS: " + arrSks[i]);
-                ditemukan = true;
+        int hitungMahasiswa = 0;
+        for (int i = 0; i < jmlBaris; i++) {
+            int totalSksPerMahasiswa = 0;
+            for (int j = 0; j < arrSks.length; j++) {
+                totalSksPerMahasiswa += arrSks[j];
+            }
+            if (totalSksPerMahasiswa < 20) {
+                hitungMahasiswa++;
             }
         }
-
-        if (!ditemukan) {
-            System.out.println("Tidak ada data dengan jenis tersebut.");
-            
-        }
+        System.out.println("Jumlah mahasiswa yang mengambil SKS kurang dari 20: " + hitungMahasiswa);
+        System.out.println();
         main(null);       
     }
+    
 }
