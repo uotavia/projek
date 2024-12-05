@@ -112,7 +112,7 @@ public class PengisianKrs {
     static void FilterKrs(Scanner sc){
         System.out.println("=== Analisis Data SKS === ");
         boolean ditemukan = false;
-        System.out.print("Masukkan Jenis Prestasi yang ingin dianalisis: ");
+        System.out.print("Masukkan jenis SKS yang ingin dianalisis: ");
         String JenisDicari = sc.nextLine();
 
         for(int i = 0; i < jmlBaris; i++){
@@ -122,6 +122,11 @@ public class PengisianKrs {
             }
 
 
+        }
+
+        if (!ditemukan) {
+            System.out.println("Tidak ada data dengan jenis tersebut.");
+            
         }
         
         
