@@ -20,7 +20,7 @@ public class PengisianKrs {
                 TampilKrs();
                 break;
             case "3":
-                FilterKrs();
+                FilterKrs(sc);
                 break;
             case "4": break;
             default:
@@ -103,7 +103,21 @@ public class PengisianKrs {
         }
         main(null); 
     }
-    static void FilterKrs(){
+    static void FilterKrs(Scanner sc){
+        System.out.println("=== Analisis Data SKS === ");
+        boolean ditemukan = false;
+        System.out.print("Masukkan Jenis Prestasi yang ingin dianalisis: ");
+        String JenisDicari = sc.nextLine();
+
+        for(int i = 0; i < jmlBaris; i++){
+            if(arrKrs[i][2].equalsIgnoreCase(JenisDicari)){
+                System.out.println("Nama: " + arrKrs[i][0] + " | NIM: " + arrKrs[i][1] + " | Jenis: " + arrKrs[i][2] + " | SKS: " + arrSks[i]);
+                ditemukan = true;
+            }
+
+
+        }
+        
         
     }
 }
