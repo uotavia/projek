@@ -20,7 +20,7 @@ public class PengisianKrs {
                 TampilKrs();
                 break;
             case "3":
-                FilterKrs();
+                FilterKrs(sc);
                 break;
             case "4": break;
             default:
@@ -45,13 +45,13 @@ public class PengisianKrs {
         System.out.println("\n-- TAMBAH DATA KRS --");
         System.out.println("*masukkan NIM 'batal123' jika ingin membatalkan aksi tambah.");
         System.out.print("NIM mahasiswa   : ");
-        String nama = sc.nextLine();
-        if (nama.equals("batal123")) {
+        String nim = sc.nextLine();
+        if (nim.equals("batal123")) {
             System.out.println();
             main(null);
         }
         System.out.print("Nama maahasiswa : ");
-        String nim = sc.nextLine();
+        String nama = sc.nextLine();
         System.out.print("Kode mata kuliah: ");
         String kode = sc.nextLine();
         System.out.print("Nama mata kuliah: ");
@@ -96,7 +96,7 @@ public class PengisianKrs {
     static void TampilKrs(){
         System.out.println("\n-- SEMUA KRS MAHASISWA --");
         if (jmlBaris == 0) {
-            System.out.println("Tidak ada data KRS.\n");
+            System.out.println("Tidak ada data KRS.");
         } else {
             for (int y = 0; y < arrKolom.length; y++){
                 System.out.print(arrKolom[y]+ "|");
@@ -104,7 +104,7 @@ public class PengisianKrs {
             System.out.println();
             for (int i = 0; i < jmlBaris; i++) {
                 for (int j = 0; j < arrKolom.length-1; j++) {
-                    System.out.print(arrKrs[i][j] + " | ");
+                    System.out.print(arrKrs[i][j] + "\t | ");
                 }
                 System.out.print(arrSks[i]);
                 System.out.println();
@@ -113,7 +113,26 @@ public class PengisianKrs {
         System.out.println();
         main(null); 
     }
-    static void FilterKrs(){
+    static void FilterKrs(Scanner sc){
+        System.out.println("=== Analisis Data SKS === ");
+        boolean ditemukan = false;
+        System.out.print("Masukkan jenis SKS yang ingin dianalisis: ");
+        String JenisDicari = sc.nextLine();
+
+        for(int i = 0; i < jmlBaris; i++){
+            if(arrKrs[i][2].equalsIgnoreCase(JenisDicari)){
+                System.out.println("Nama: " + arrKrs[i][0] + " | NIM: " + arrKrs[i][1] + " | Jenis: " + arrKrs[i][2] + " | SKS: " + arrSks[i]);
+                ditemukan = true;
+            }
+
+
+        }
+
+        if (!ditemukan) {
+            System.out.println("Tidak ada data dengan jenis tersebut.");
+            
+        }
+        
         
     }
 }
