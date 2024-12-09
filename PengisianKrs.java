@@ -20,7 +20,7 @@ public class PengisianKrs {
                 TampilKrs(sc);
                 break;
             case "3":
-                FilterKrs(sc);
+                AnalisisKrs(sc);
                 break;
             case "4": break;
             default:
@@ -165,7 +165,7 @@ public class PengisianKrs {
         }
         main(null);
     }
-    static void FilterKrs(Scanner sc) {
+    static void AnalisisKrs(Scanner sc) {
         System.out.println();
         System.out.println("=== Analisis Data SKS === ");
         int hitungMahasiswa = 0;
