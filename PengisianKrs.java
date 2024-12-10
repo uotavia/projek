@@ -38,7 +38,7 @@ public class PengisianKrs {
                 }
         }
         System.out.println();
-    }
+    } 
     static void TambahKrs(){
         int jmlSks = 0;
         Scanner sc = new Scanner(System.in);
@@ -60,7 +60,7 @@ public class PengisianKrs {
             String namaMK = sc.nextLine();
             System.out.print("Jumlah SKS (1-3)  : ");
             int sks = sc.nextInt(); sc.nextLine();
-            if (sks>3||sks<0) {
+            while (sks>3||sks<0) {
                 System.out.println("! jumlah SKS yang anda masukkan belum sesuai. \nMasukkan ulang jumlah SKS!");
                 System.out.print("Jumlah SKS (1-3) : ");
                 sks = sc.nextInt(); sc.nextLine();
